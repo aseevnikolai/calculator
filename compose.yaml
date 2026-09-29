@@ -1,0 +1,16 @@
+# Воспроизводимый запуск приложения:
+#   git clone <репозиторий> && cd calculator && cp .env.example .env && docker compose up
+# Все настройки передаются через переменные окружения: файл .env, образец — .env.example.
+name: calculator
+
+services:
+  web:
+    build: .
+    image: calculator:1.2.1
+    ports:
+      - "${WEB_PORT:-8080}:${NGINX_PORT:-8080}"
+    environment:
+      NGINX_PORT: ${NGINX_PORT:-8080}
+      APP_ENV: ${APP_ENV:-development}
+      STATUS_USER: ${STATUS_USER:-admin}
+      STATUS_PASSWORD: ${STATUS_PASSWORD:?задайте STATUS_PASSWORD в .env (образец — .env.example)}

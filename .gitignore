@@ -10,3 +10,7 @@ node_modules/
 npm-debug.log*
 Thumbs.db
 .vscode/
+
+# Локальные настройки и секреты — не в Git
+.env
+k8s/secret.yaml
