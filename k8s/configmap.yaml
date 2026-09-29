@@ -1,0 +1,12 @@
+# Несекретные настройки приложения — те же переменные, что в .env для Docker Compose
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: calculator-config
+  namespace: calculator
+  labels:
+    app.kubernetes.io/name: calculator
+data:
+  NGINX_PORT: "8080"
+  APP_ENV: "kubernetes"
+  STATUS_USER: "admin"

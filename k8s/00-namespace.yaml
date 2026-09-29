@@ -1,0 +1,7 @@
+# Отдельное пространство имён для приложения
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: calculator
+  labels:
+    app.kubernetes.io/part-of: calculator

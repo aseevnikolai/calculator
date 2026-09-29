@@ -1,0 +1,18 @@
+# Доступ к приложению: NodePort 30080. В кластере kind этот порт проброшен
+# на localhost:30080 (см. cluster/kind-config.yaml), поэтому приложение открывается в браузере.
+apiVersion: v1
+kind: Service
+metadata:
+  name: calculator
+  namespace: calculator
+  labels:
+    app.kubernetes.io/name: calculator
+spec:
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: calculator
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+      nodePort: 30080
